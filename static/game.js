@@ -107,15 +107,14 @@ var context = canvas.getContext('2d');
 socket.on('draw', function(game,num) {
 	let text="not started"
 	context.clearRect(offX,0,550,50*7+offY)
-	if(gameN==num){
-		for( i=0;i<table.length;i++){
-			for( j=0;j<table.length;j++){
-				if(table[i][j]==0)context.drawImage(tile, 50*i+offX,50*j+offY);
-				else if (table[i][j]==1)context.drawImage(tileRed, 50*i+offX,50*j+offY);
-				else if(table[i][j]==2)context.drawImage(tileBlue, 50*i+offX,50*j+offY);
-			}
+	for( i=0;i<table.length;i++){
+		for( j=0;j<table.length;j++){
+			if(table[i][j]==0)context.drawImage(tile, 50*i+offX,50*j+offY);
+			else if (table[i][j]==1)context.drawImage(tileRed, 50*i+offX,50*j+offY);
+			else if(table[i][j]==2)context.drawImage(tileBlue, 50*i+offX,50*j+offY);
 		}
 	}
+	
 	context.font = "20px Arial";
 	context.fillStyle = 'black';
 	context.fillText("WINS: " + wins, 350, 30+offY);
